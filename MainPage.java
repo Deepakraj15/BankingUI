@@ -4,6 +4,7 @@ import java.awt.event.*;
 
 public class MainPage implements ActionListener {
     // Creating Buttons
+
     JButton btn1, btn2, btn3, btn4;
 
     {
@@ -16,8 +17,6 @@ public class MainPage implements ActionListener {
     void displayMain() {
         JFrame mainFrame = new JFrame("WELCOME");
         JLabel action = new JLabel("Choose An Action ");
-        JPanel container = new JPanel();
-        container.setBackground(Color.CYAN);
         mainFrame.add(action);
 
         btn1.addActionListener(this);
@@ -25,19 +24,17 @@ public class MainPage implements ActionListener {
         btn2.addActionListener(this);
 
         btn3.addActionListener(this);
-        // adding button to the container frame
-        container.add(btn1);
-        container.add(btn2);
-        container.add(btn3);
-        container.add(btn4);
+
         btn4.addActionListener(this);
-        mainFrame.add(container);
 
-        container.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 30));
-
+        // adding button to the main frame
+        mainFrame.add(btn1);
+        mainFrame.add(btn2);
+        mainFrame.add(btn3);
+        mainFrame.add(btn4);
         // setting frame properties
         mainFrame.setVisible(true);
-        mainFrame.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 30));
+        mainFrame.setLayout(new FlowLayout(FlowLayout.LEFT, 100, 30));
         mainFrame.setBounds(300, 100, 500, 500);
         // actionlistener setup
     }
