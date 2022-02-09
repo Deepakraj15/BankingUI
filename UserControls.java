@@ -21,16 +21,16 @@ public class UserControls implements ActionListener {
         mainFrame.add(action);
 
         btn1.addActionListener(this);
-
         btn2.addActionListener(this);
-
         btn3.addActionListener(this);
+        btn4.addActionListener(this);
+
         // adding button to the container frame
         container.add(btn1);
         container.add(btn2);
         container.add(btn3);
         container.add(btn4);
-        btn4.addActionListener(this);
+
         mainFrame.add(container);
 
         container.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 30));
