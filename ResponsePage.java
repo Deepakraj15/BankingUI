@@ -154,4 +154,11 @@ public class ResponsePage {
         });
     }
 
+    void addUserDetails() {
+        JLabel details = new JLabel("Enter Username: ");
+        JTextField detailsUserAdd = new JTextField();
+        // details.set
+        // detailsUserAdd.setBounds(100,200,20,30);
+
+    }
 }
