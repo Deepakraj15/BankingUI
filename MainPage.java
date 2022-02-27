@@ -1,8 +1,8 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class MainPage implements ActionListener {
+    ResponsePage res = new ResponsePage();
     JButton addUser, modUser, getCred, accUser; // buttons to operforms seperate functions
 
     // creating buttons
@@ -30,12 +30,15 @@ public class MainPage implements ActionListener {
         modUser.addActionListener(this);
         getCred.addActionListener(this);
         accUser.addActionListener(this);
+
+        // adding container to the frame
+        frame.add(con1);
     }
 
     public void actionPerformed(ActionEvent e) {
         Object obj = e.getSource();
         if (obj == addUser) {
-
+            res.addUserDetails();
         } else if (obj == modUser) {
 
         } else if (obj == getCred) {
