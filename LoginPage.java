@@ -7,18 +7,16 @@ public class LoginPage {
         JFrame logFrame = new JFrame("LOGIN - USER");
         JTextField textUser = new JTextField(); // usernme field
         JPasswordField textPass = new JPasswordField(); // password field
-        JButton logButton = new JButton("LOGIN"); // login button
-        JLabel label1, label2, label3;
-        GridBagConstraints gbc1, gbc2, gbc3, gbclabel, gbchint;
+        JButton logButton = new JButton("LOGIN");// login button
+        JLabel label1, label2;
+        GridBagConstraints gbc1, gbc2, gbc3, gbclabel;
         GridBagLayout layout = new GridBagLayout();
         logFrame.setLayout(layout);
 
         gbclabel = new GridBagConstraints();
 
         /** ----------------USERNAME------------------- */
-
         // username textfield creation and placement
-
         gbc1 = new GridBagConstraints();
         gbc1.fill = GridBagConstraints.HORIZONTAL;
         gbc1.ipadx = 120;
@@ -26,9 +24,7 @@ public class LoginPage {
         gbc1.gridx = 1;
         gbc1.gridy = 0;
         logFrame.add(textUser, gbc1); // adding username to the frame
-
         // label for username
-
         gbclabel.ipadx = 5;
         gbclabel.ipady = 10;
         gbclabel.gridx = 0;
@@ -37,9 +33,7 @@ public class LoginPage {
         logFrame.add(label1, gbclabel);
 
         /** ----------------PASSWORD------------------- */
-
         // password field creation and placemnet
-
         gbc2 = new GridBagConstraints();
         gbc2.fill = GridBagConstraints.HORIZONTAL;
         gbc2.ipadx = 120;
@@ -47,20 +41,15 @@ public class LoginPage {
         gbc2.gridx = 1;
         gbc2.gridy = 1;
         logFrame.add(textPass, gbc2); // adding password field to the frame
-
         // label for password
-
         gbclabel.ipadx = 5;
         gbclabel.ipady = 10;
         gbclabel.gridx = 0;
         gbclabel.gridy = 1;
         label2 = new JLabel("PASSWORD");
         logFrame.add(label2, gbclabel);
-
         /** ----------------BUTTON------------------- */
-
         // login button creation and placement
-
         gbc3 = new GridBagConstraints();
         gbc3.fill = GridBagConstraints.HORIZONTAL;
         gbc3.ipadx = 120;
@@ -69,18 +58,6 @@ public class LoginPage {
         gbc3.gridy = 2;
         logFrame.add(logButton, gbc3); // adding button to the frame
 
-        /** ------------hint message ------------------ */
-
-        gbchint = new GridBagConstraints();
-        gbchint.fill = GridBagConstraints.HORIZONTAL;
-        gbchint.ipadx = 120;
-        gbchint.ipady = 10;
-        gbchint.gridx = 1;
-        gbchint.gridy = 3;
-        label3 = new JLabel("HINT: Try 'password'");
-        label3.setVisible(false);
-        logFrame.add(label3, gbchint);
-
         logButton.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent ae) {
@@ -88,12 +65,10 @@ public class LoginPage {
                 MainPage mp = new MainPage();
                 String pass = new String(textPass.getPassword());
                 if (!pass.equals("password")) {
-                    label3.setVisible(true);
                     res.PassErrorText();
-
                 } else {
                     logFrame.dispose();
-                    mp.userMain();
+                    mp.displayMain();
                 }
             }
         });
@@ -103,7 +78,7 @@ public class LoginPage {
         logFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public static void main(String[] args) { // main function
+    public static void main(String[] args) {
         LoginPage ob;
         ob = new LoginPage();
         ob.userLogin();

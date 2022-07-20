@@ -1,50 +1,61 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class MainPage implements ActionListener {
-    ResponsePage res = new ResponsePage();
-    JButton addUser, modUser, getCred, accUser; // buttons to operforms seperate functions
+    // Creating Buttons
+    JButton btn1, btn2, btn3, btn4;
 
-    // creating buttons
     {
-        addUser = new JButton("Add New User");
-        modUser = new JButton("Modify User");
-        getCred = new JButton("Get Details");
-        accUser = new JButton("Access User");
+        btn1 = new JButton("Check Balance");
+        btn2 = new JButton("Deposit");
+        btn3 = new JButton("Withdraw");
+        btn4 = new JButton("File a Complient");
     }
 
-    void userMain() {
-        JFrame frame = new JFrame(); // outer frame
-        JPanel con1; // containers to hold components
+    void displayMain() {
+        JFrame mainFrame = new JFrame("WELCOME");
+        JLabel action = new JLabel("Choose An Action ");
+        JPanel container = new JPanel();
+        container.setBackground(Color.CYAN);
+        mainFrame.add(action);
 
-        con1 = new JPanel();
-        // adding buttons to the container - con1
+        btn1.addActionListener(this);
 
-        con1.add(addUser);
-        con1.add(addUser);
-        con1.add(addUser);
-        con1.add(addUser);
+        btn2.addActionListener(this);
 
-        // passing objects
-        addUser.addActionListener(this);
-        modUser.addActionListener(this);
-        getCred.addActionListener(this);
-        accUser.addActionListener(this);
+        btn3.addActionListener(this);
+        // adding button to the container frame
+        container.add(btn1);
+        container.add(btn2);
+        container.add(btn3);
+        container.add(btn4);
+        btn4.addActionListener(this);
+        mainFrame.add(container);
 
-        // adding container to the frame
-        frame.add(con1);
+        container.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 30));
+
+        // setting frame properties
+        mainFrame.setVisible(true);
+        mainFrame.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 30));
+        mainFrame.setBounds(300, 100, 500, 500);
+        // actionlistener setup
     }
 
-    public void actionPerformed(ActionEvent e) {
-        Object obj = e.getSource();
-        if (obj == addUser) {
-            res.addUserDetails();
-        } else if (obj == modUser) {
+    public void actionPerformed(ActionEvent event) {
+        ResponsePage res = new ResponsePage();
+        Object ob = event.getSource();
+        if (ob == btn1) {
 
-        } else if (obj == getCred) {
+            res.balanceCheck();
+        } else if (ob == btn2) {
 
+            res.cashDeposit();
+        } else if (ob == btn3) {
+
+            res.withdrawal();
         } else {
-
+            res.feeback();
         }
     }
 
